@@ -1,0 +1,22 @@
+<ActionBar title="Sign in"></ActionBar>
+
+<FlexboxLayout>
+    <StackLayout class="form">
+        <TextField hint="Email Address"
+                   keyboardType="email"
+                   autocorrect="false"
+                   autocapitalizationType="none"
+                   [(ngModel)]="credentials.email"
+                   class="input input-border"></TextField>
+        <TextField hint="Password"
+                   secure="true"
+                   [(ngModel)]="credentials.password"
+                   class="input input-border"></TextField>
+
+        <Button text="Sign in"
+                class="btn btn-primary"
+                (tap)="submit()"></Button>
+        <Button text="Sign up for PMS"
+                [nsRouterLink]="['/register']"></Button>
+    </StackLayout>
+</FlexboxLayout>

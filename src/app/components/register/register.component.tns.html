@@ -1,0 +1,31 @@
+<ActionBar title="Sign up"></ActionBar>
+
+<FlexboxLayout>
+    <StackLayout class="form">
+        <TextField hint="Name"
+                   [(ngModel)]="user.name"
+                   class="input input-border"></TextField>
+
+        <TextField hint="Surname"
+                   [(ngModel)]="user.surname"
+                   class="input input-border"></TextField>
+
+        <TextField hint="Email Address"
+                   keyboardType="email"
+                   autocorrect="false"
+                   autocapitalizationType="none"
+                   [(ngModel)]="user.email"
+                   class="input input-border"></TextField>
+
+        <TextField hint="Password"
+                   secure="true"
+                   [(ngModel)]="user.password"
+                   class="input input-border"></TextField>
+
+        <Button text="Sign up"
+                class="btn btn-primary"
+                (tap)="submit()"></Button>
+        <Button text="Back to login"
+                [nsRouterLink]="['/login']"></Button>
+    </StackLayout>
+</FlexboxLayout>

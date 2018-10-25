@@ -1,7 +1,10 @@
 {
   "name": "project-management-system",
   "nativescript": {
-    "id": "org.nativescript.projectmanagementsystem"
+    "id": "org.nativescript.projectmanagementsystem",
+    "tns-android": {
+      "version": "4.2.0"
+    }
   },
   "version": "0.0.0",
   "scripts": {
