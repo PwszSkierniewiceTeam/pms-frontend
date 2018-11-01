@@ -1,17 +1,38 @@
 <ActionBar title="Sign in"></ActionBar>
 
-<FlexboxLayout>
+<FlexboxLayout class="login-container">
     <StackLayout class="form">
-        <TextField hint="Email Address"
-                   keyboardType="email"
-                   autocorrect="false"
-                   autocapitalizationType="none"
-                   [(ngModel)]="credentials.email"
-                   class="input input-border"></TextField>
-        <TextField hint="Password"
-                   secure="true"
-                   [(ngModel)]="credentials.password"
-                   class="input input-border"></TextField>
+        <FlexboxLayout class="header">
+            <Label class="h2" text="Sign in to PMS"></Label>
+        </FlexboxLayout>
+        <StackLayout>
+            <Label text="E-mail address"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #email="ngModel"
+                       [(ngModel)]="credentials.email"
+                       keyboardType="email"
+                       autocorrect="false"
+                       autocapitalizationType="none"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="email"></pms-validation-messages>
+        </StackLayout>
+        <StackLayout>
+            <Label text="Password"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #password="ngModel"
+                       [(ngModel)]="credentials.password"
+                       autocorrect="false"
+                       autocapitalizationType="none"
+                       secure="true"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="password"></pms-validation-messages>
+        </StackLayout>
+
+        <Label *ngIf="apiError"
+               text="{{apiError.get('uncategorized')}}"
+               class="label font-weight-bold m-b-5 error-message"></Label>
 
         <Button text="Sign in"
                 class="btn btn-primary"

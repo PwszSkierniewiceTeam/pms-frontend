@@ -1,1 +1,14 @@
-<Button text="validation-messages works!" class="btn btn-primary"></Button>
+<StackLayout *ngIf="model.invalid && (model.dirty || model.touched)">
+    <Label *ngIf="model.errors.required"
+           class="error-message"
+           text="This field is required."
+    ></Label>
+    <Label *ngIf="model.errors.minlength"
+           class="error-message"
+           text="This value is too long."
+    ></Label>
+    <Label *ngIf="model.errors.email"
+           class="error-message"
+           text="Invalid e-mail address."
+    ></Label>
+</StackLayout>

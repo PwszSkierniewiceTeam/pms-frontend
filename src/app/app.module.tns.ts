@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { HomeComponent } from './home/home.component';
 import { SessionInterceptor } from './interceptors/session.interceptor';
 
@@ -22,6 +23,7 @@ import { SessionInterceptor } from './interceptors/session.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
+    ValidationMessagesComponent,
     HomeComponent,
     LoginComponent,
     RegisterComponent
