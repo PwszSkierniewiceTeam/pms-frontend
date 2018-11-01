@@ -1,0 +1,43 @@
+@import "variables";
+
+$custom-typography: mat-typography-config(
+        $font-family: 'Roboto, monospace'
+);
+
+// Include the base styles for Angular Material core. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+@include mat-core($custom-typography);
+
+// Include theme styles for core and each component used in your app.
+@include mat-core-theme($drm-theme);
+
+@include mat-autocomplete-theme($drm-theme);
+@include mat-button-theme($drm-theme);
+//@include mat-button-toggle-theme($drm-theme);
+@include mat-card-theme($drm-theme);
+@include mat-checkbox-theme($drm-theme);
+@include mat-chips-theme($drm-theme);
+//@include mat-datepicker-theme($drm-theme);
+@include mat-dialog-theme($drm-theme);
+@include mat-divider-theme($drm-theme);
+//@include mat-expansion-panel-theme($drm-theme);
+@include mat-form-field-theme($drm-theme);
+//@include mat-grid-list-theme($drm-theme);
+@include mat-icon-theme($drm-theme);
+@include mat-input-theme($drm-theme);
+@include mat-list-theme($drm-theme);
+@include mat-menu-theme($drm-theme);
+//@include mat-paginator-theme($drm-theme);
+//@include mat-progress-bar-theme($drm-theme);
+@include mat-progress-spinner-theme($drm-theme);
+//@include mat-radio-theme($drm-theme);
+@include mat-select-theme($drm-theme);
+@include mat-sidenav-theme($drm-theme);
+//@include mat-slide-toggle-theme($drm-theme);
+//@include mat-slider-theme($drm-theme);
+//@include mat-snack-bar-theme($drm-theme);
+//@include mat-stepper-theme($drm-theme);
+@include mat-table-theme($drm-theme);
+@include mat-toolbar-theme($drm-theme);
+@include mat-tooltip-theme($drm-theme);
+//@include mat-tree-theme($drm-theme)

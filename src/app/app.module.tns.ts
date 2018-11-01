@@ -1,6 +1,8 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptFormsModule, NativeScriptHttpModule, NativeScriptRouterModule } from 'nativescript-angular';
+import { NativeScriptAnimationsModule } from 'nativescript-angular/animations';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +30,8 @@ import { HomeComponent } from './home/home.component';
     NativeScriptFormsModule,
     NativeScriptHttpModule,
     NativeScriptRouterModule,
+    NativeScriptAnimationsModule,
+    NativeScriptHttpClientModule,
     AppRoutingModule
   ],
   providers: [],

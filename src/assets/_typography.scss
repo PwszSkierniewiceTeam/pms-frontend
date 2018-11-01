@@ -1,0 +1,52 @@
+@import 'variables';
+$typo-primary: map-get($drm-theme, primary);
+
+h1,
+.h1 {
+  @extend .mat-h1;
+  margin: 0;
+}
+
+h2,
+.h2 {
+  @extend .mat-h2;
+  margin: 0;
+}
+
+h3,
+.h3 {
+  @extend .mat-h3;
+  margin: 0;
+}
+
+h4,
+.h4 {
+  @extend .mat-h4;
+  margin: 0;
+}
+
+h5,
+.h5 {
+  @extend .mat-h5;
+  margin: 0;
+}
+
+h6,
+.h6 {
+  @extend .mat-h6;
+  margin: 0;
+}
+
+a {
+  color: mat-color($typo-primary, 400);
+  text-decoration: none;
+  &:visited,
+  &:focus,
+  &:active {
+    color: mat-color($typo-primary, 400);
+  }
+
+  &:hover {
+    color: mat-color($typo-primary, 600);
+  }
+}

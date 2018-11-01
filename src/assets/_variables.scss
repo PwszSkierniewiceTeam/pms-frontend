@@ -1,0 +1,26 @@
+@import '~@angular/material/theming';
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue.
+
+$drm-primary: $mat-blue;
+
+$drm-primary-palette: mat-palette($drm-primary);
+$drm-accent-palette: mat-palette($mat-orange);
+$drm-warn-palette: mat-palette($mat-red);
+
+// The warn palette is optional (defaults to red).
+
+// Create the theme object (a Sass map containing all of the palettes).
+$drm-theme: mat-light-theme($drm-primary-palette, $drm-accent-palette, $drm-warn-palette);
+
+$toolbar-color: #fff;
+$standard-animation: 0.4s all $swift-ease-out-timing-function;
+$dark-grey: #565656;
+$box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14),
+0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+$box-shadow-no-bottom: 0px 0px 5px -1px rgba(0, 0, 0, 0.2), 0px 0px 10px 0px rgba(0, 0, 0, 0.14),
+0px 0px 18px 0px rgba(0, 0, 0, 0.12);
+$main-nav-top-padding: 8px;
+$grey: #d6d9e9;

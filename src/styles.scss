@@ -8,6 +8,7 @@
 html,
 body {
   font-family: 'Roboto, monospace', 'sans-serif';
+  display: flex;
 }
 
 * {
@@ -24,3 +25,5 @@ button {
   cursor: pointer;
   text-transform: uppercase;
 }
+
+@import "assets/pms-styles";

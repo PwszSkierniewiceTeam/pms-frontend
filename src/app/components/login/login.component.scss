@@ -1,0 +1,126 @@
+@import 'variables';
+
+$primary: map-get($drm-primary, 700);
+$white: #f0f0f0f;
+
+mat-form-field {
+  width: 100%;
+}
+
+.auth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: url('/assets/img/bg.jpg') no-repeat center center;
+  background-size: cover;
+  .outlet-container {
+    overflow: hidden;
+    transition: max-height 200ms ease-in-out;
+  }
+}
+
+.card {
+  padding: 40px 0 0;
+  box-sizing: border-box;
+  width: 450px;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
+}
+
+.header {
+  border-right: 5px $primary solid;
+  border-left: 5px $primary solid;
+  padding: 5px 12px;
+  height: auto;
+
+  h1 {
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+  }
+  .application-name {
+    margin: 0;
+    font-family: Roboto, sans-serif;
+  }
+}
+
+.text-margin {
+  margin-left: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.language-select {
+  align-self: center;
+  grid-column: 2;
+}
+
+.content {
+  padding: 50px 25px 5px;
+}
+
+.content ::ng-deep form {
+  mat-form-field {
+    width: 100%;
+  }
+
+  .forgot-password--button {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $primary;
+    display: none;
+  }
+
+  .login-controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0 20px 0;
+  }
+  .login--button {
+    color: $white;
+    // margin bellow needed when forgot password is hidden
+    margin-left: auto;
+  }
+  .send--button {
+    margin-left: auto;
+  }
+  .login--button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .remember-checkbox {
+    margin: 10px 0 0 0;
+    span.mat-checkbox-label {
+      margin: 0 0 0 6px;
+    }
+    .mat-checkbox-inner-container {
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 470px) {
+  .card {
+    width: 90%;
+    justify-self: center;
+  }
+  .language-select {
+    display: flex;
+    mat-form-field {
+      margin: auto;
+      width: 50%;
+    }
+  }
+}

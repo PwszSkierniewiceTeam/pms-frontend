@@ -1,0 +1,13 @@
+<div *ngIf="model.invalid && (model.dirty || model.touched)"
+     class="alert alert-danger">
+    <div *ngIf="model.errors.required">
+        This field is required.
+    </div>
+    <div *ngIf="model.errors.minlength">
+        This value is too long.
+    </div>
+    <div *ngIf="model.errors.email">
+        Invalid e-mail address.
+    </div>
+
+</div>
