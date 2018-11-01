@@ -12,10 +12,20 @@ import { Utils } from '../utils';
 })
 export class SessionService {
   expires: number | null = null;
+  miliSecondsToRenewToken = 5 * 60 * 1000;
   token: string;
   user: User | null = null;
 
   constructor(private http: HttpClient) {
+  }
+
+  getLifeTimeLeft(): number {
+    if (!this.expires) {
+      return 0;
+    }
+
+    const timeLeft = this.expires - (new Date()).getTime();
+    return timeLeft > 0 ? timeLeft : 0;
   }
 
   login(credentials: LoginCredentials): Observable<User> {

@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptFormsModule, NativeScriptHttpModule, NativeScriptRouterModule } from 'nativescript-angular';
 import { NativeScriptAnimationsModule } from 'nativescript-angular/animations';
@@ -10,6 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './home/home.component';
+import { SessionInterceptor } from './interceptors/session.interceptor';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -34,7 +36,13 @@ import { HomeComponent } from './home/home.component';
     NativeScriptHttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SessionInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
