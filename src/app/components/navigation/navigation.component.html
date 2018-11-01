@@ -1,10 +1,10 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" class="mat-elevation-z4">
     <mat-toolbar-row>
         <span><a [routerLink]="['/', 'project']">PMS</a></span>
         <span class="example-spacer"></span>
         <span>{{ user?.fullName }}</span>
         <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>person</mat-icon>
+            <mat-icon>settings</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="logout()">

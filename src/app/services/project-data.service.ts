@@ -21,6 +21,22 @@ const projects = [
     name: 'Example project 2',
     startDate: new Date(),
     userRole: ProjectUserRole.User
+  }),
+  new Project({
+    description: 'Example project 3 description',
+    endDate: (new Date()).toISOString(),
+    id: Utils.uuid(),
+    name: 'Example project 3',
+    startDate: new Date(),
+    userRole: ProjectUserRole.User
+  }),
+  new Project({
+    description: 'Example project 4 description',
+    endDate: (new Date()).toISOString(),
+    id: Utils.uuid(),
+    name: 'Example project 4',
+    startDate: new Date(),
+    userRole: ProjectUserRole.User
   })
 ];
 
