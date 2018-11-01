@@ -18,7 +18,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   }
 
   private checkSessionValidity(): boolean {
-    console.log(this.sessionService.getLifeTimeLeft());
     const isValid = this.sessionService.getLifeTimeLeft() > 0;
 
     if (!isValid) {
