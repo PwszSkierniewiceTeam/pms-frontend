@@ -40,6 +40,11 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
+                <mat-error>
+                    <div *ngIf="apiError">
+                        {{ apiError?.get('uncategorized') }}
+                    </div>
+                </mat-error>
                 <div class="login-controls">
                     <button mat-raised-button
                             color="accent"
@@ -48,6 +53,7 @@
                         {{ 'Login' }}
                     </button>
                 </div>
+
             </form>
 
         </mat-card-content>
