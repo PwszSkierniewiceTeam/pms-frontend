@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         throw err;
       })
     ).subscribe(() => {
-      this.router.navigate(['/', 'home']);
+      this.router.navigate(['/', 'project']);
     });
   }
 }

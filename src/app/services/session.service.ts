@@ -6,21 +6,27 @@ import { environment } from '../../environments/environment';
 import { LoginCredentials } from '../interfaces/login-credentials.interface';
 import { User } from '../models/user.model';
 import { Utils } from '../utils';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SessionService {
-  expires: number | null = null;
-  miliSecondsToRenewToken = 5 * 60 * 1000;
+  expires?: number = null;
+  milliSecondsToRenewToken = 5 * 60 * 1000;
   token: string;
-  user: User | null = null;
+  user?: User = null;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private lc: StorageService) {
+    const token = this.lc.getItem('jwt');
+
+    if (!!token) {
+      this.decodeToken(token, parseInt(this.lc.getItem('jwt-expires'), 10));
+    }
   }
 
   getLifeTimeLeft(): number {
-    if (!this.expires) {
+    if (this.expires === null) {
       return 0;
     }
 
@@ -39,7 +45,7 @@ export class SessionService {
    *
    * @returns {any} token payload
    */
-  private decodeToken(token: string): User {
+  private decodeToken(token: string, expires?: number): User {
     const parts = token.split('.');
 
     if (parts.length !== 3) {
@@ -54,7 +60,9 @@ export class SessionService {
     const tokenData = JSON.parse(decoded);
     this.token = token;
     this.user = tokenData.user;
-    this.expires = tokenData.exp;
+    this.expires = expires || (new Date()).getTime() + tokenData.validFor * 1000;
+    this.lc.setItem('jwt', this.token);
+    this.lc.setItem('jwt-expires', this.expires.toString());
 
     return new User(tokenData.user);
   }

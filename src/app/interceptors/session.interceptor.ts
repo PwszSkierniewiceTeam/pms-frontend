@@ -61,7 +61,7 @@ export class SessionInterceptor implements HttpInterceptor {
     const timeLeft = this.sessionService.getLifeTimeLeft();
     return (
       timeLeft > 0 &&
-      timeLeft <= this.sessionService.miliSecondsToRenewToken &&
+      timeLeft <= this.sessionService.milliSecondsToRenewToken &&
       this.renewTokenRequestNotInProgress
     );
   }

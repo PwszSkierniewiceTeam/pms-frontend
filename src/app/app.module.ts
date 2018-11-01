@@ -14,6 +14,7 @@ import { ValidationMessagesComponent } from './components/validation-messages/va
 import { CustomMaterialModule } from './custom-material.module';
 import { HomeComponent } from './home/home.component';
 import { SessionInterceptor } from './interceptors/session.interceptor';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SessionInterceptor } from './interceptors/session.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: SessionInterceptor,
       multi: true
-    }
+    },
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

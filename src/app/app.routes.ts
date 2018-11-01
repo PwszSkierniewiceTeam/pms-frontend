@@ -2,8 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
-
-import { HomeComponent } from './home/home.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -12,8 +11,9 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    component: ProjectListComponent
+    path: 'project',
+    component: ProjectListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',

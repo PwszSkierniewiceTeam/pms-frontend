@@ -14,6 +14,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { HomeComponent } from './home/home.component';
 import { SessionInterceptor } from './interceptors/session.interceptor';
+import { StorageService } from './services/storage.service';
+import { StorageTnsService } from './services/storage.tns.service';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from 'nativescript-angular/forms';
@@ -41,6 +43,10 @@ import { SessionInterceptor } from './interceptors/session.interceptor';
     AppRoutingModule
   ],
   providers: [
+    {
+      provide: StorageService,
+      useClass: StorageTnsService
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SessionInterceptor,
