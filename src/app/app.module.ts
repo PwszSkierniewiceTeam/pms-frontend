@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { CustomMaterialModule } from './custom-material.module';
@@ -21,7 +22,8 @@ import { SessionInterceptor } from './interceptors/session.interceptor';
     ValidationMessagesComponent,
     LoginComponent,
     RegisterComponent,
-    BannerComponent
+    BannerComponent,
+    ProjectListComponent
   ],
   imports: [
     BrowserModule,

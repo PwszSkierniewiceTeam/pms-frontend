@@ -9,6 +9,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +27,8 @@ import { SessionInterceptor } from './interceptors/session.interceptor';
     ValidationMessagesComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProjectListComponent
   ],
   imports: [
     NativeScriptModule,
