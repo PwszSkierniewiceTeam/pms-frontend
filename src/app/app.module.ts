@@ -12,14 +12,12 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { CustomMaterialModule } from './custom-material.module';
-import { HomeComponent } from './home/home.component';
 import { SessionInterceptor } from './interceptors/session.interceptor';
 import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ValidationMessagesComponent,
     LoginComponent,
     RegisterComponent,

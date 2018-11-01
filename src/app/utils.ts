@@ -1,6 +1,25 @@
-import { HttpErrorResponse } from '@angular/common/http';
-
 export namespace Utils {
+  /**
+   * Generates uuid.
+   * @returns {string}
+   */
+  export function uuid(): string {
+    let d = new Date().getTime();
+    if (
+      typeof performance !== 'undefined' &&
+      typeof performance.now === 'function'
+    ) {
+      d += performance.now(); // use high-precision timer if available
+    }
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c): string {
+      // tslint:disable-next-line no-bitwise
+      const r = ((d + Math.random() * 16) % 16) | 0;
+      d = Math.floor(d / 16);
+      // tslint:disable-next-line no-bitwise
+      return (c === 'x' ? r : (r & 0x3) | 0x8).toString(16);
+    });
+  }
+
   export function urlBase64Decode(str: string): string {
     let output = str.replace(/-/g, '+').replace(/_/g, '/');
     switch (output.length % 4) {
