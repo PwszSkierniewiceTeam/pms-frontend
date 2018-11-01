@@ -3,3 +3,13 @@
 @import 'bootstrap';
 @import 'material-theme';
 @import 'typography';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, pms-root, pms-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

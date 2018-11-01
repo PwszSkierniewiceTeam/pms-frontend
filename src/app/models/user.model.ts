@@ -6,4 +6,8 @@ export class User extends Model {
   name: string;
   password?: string;
   surname: string;
+
+  get fullName(): string {
+    return `${this.name} ${this.surname}`;
+  }
 }

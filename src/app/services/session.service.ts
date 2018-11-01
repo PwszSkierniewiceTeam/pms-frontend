@@ -14,7 +14,7 @@ import { StorageService } from './storage.service';
 export class SessionService {
   expires?: number = null;
   milliSecondsToRenewToken = 5 * 60 * 1000;
-  token: string;
+  token?: string = null;
   user?: User = null;
 
   constructor(private http: HttpClient, private lc: StorageService) {
@@ -40,6 +40,13 @@ export class SessionService {
     );
   }
 
+  logout(): void {
+    this.expires = null;
+    this.token = null;
+    this.user = null;
+    this.lc.clear();
+  }
+
   /**
    * Decodes token data payload
    *
@@ -59,7 +66,7 @@ export class SessionService {
 
     const tokenData = JSON.parse(decoded);
     this.token = token;
-    this.user = tokenData.user;
+    this.user = new User(tokenData.user);
     this.expires = expires || (new Date()).getTime() + tokenData.validFor * 1000;
     this.lc.setItem('jwt', this.token);
     this.lc.setItem('jwt-expires', this.expires.toString());

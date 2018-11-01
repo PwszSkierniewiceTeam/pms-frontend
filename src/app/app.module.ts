@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
@@ -21,6 +22,7 @@ import { StorageService } from './services/storage.service';
     AppComponent,
     ValidationMessagesComponent,
     MainComponent,
+    NavigationComponent,
     LoginComponent,
     RegisterComponent,
     BannerComponent,
