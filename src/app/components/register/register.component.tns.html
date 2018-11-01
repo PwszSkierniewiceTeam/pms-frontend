@@ -1,26 +1,59 @@
 <ActionBar title="Sign up"></ActionBar>
 
-<FlexboxLayout>
+<FlexboxLayout class="register-container">
     <StackLayout class="form">
-        <TextField hint="Name"
-                   [(ngModel)]="user.name"
-                   class="input input-border"></TextField>
+        <FlexboxLayout class="header">
+            <Label class="h2" text="Sign up to PMS"></Label>
+        </FlexboxLayout>
+        <StackLayout>
+            <Label text="First name"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #name="ngModel"
+                       [(ngModel)]="user.name"
+                       autocapitalizationType="words"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="name"></pms-validation-messages>
+        </StackLayout>
+        <StackLayout>
+            <Label text="Last name"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #surname="ngModel"
+                       [(ngModel)]="user.surname"
+                       autocapitalizationType="words"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="surname"></pms-validation-messages>
+        </StackLayout>
+        <StackLayout>
+            <Label text="E-mail address"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #email="ngModel"
+                       [(ngModel)]="user.email"
+                       keyboardType="email"
+                       autocorrect="false"
+                       autocapitalizationType="none"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="email"></pms-validation-messages>
+        </StackLayout>
+        <StackLayout>
+            <Label text="Password"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #password="ngModel"
+                       [(ngModel)]="user.password"
+                       autocorrect="false"
+                       autocapitalizationType="none"
+                       secure="true"
+                       class="input input-border"
+                       minlength="6"
+                       required></TextField>
+            <pms-validation-messages [model]="password"></pms-validation-messages>
+        </StackLayout>
 
-        <TextField hint="Surname"
-                   [(ngModel)]="user.surname"
-                   class="input input-border"></TextField>
-
-        <TextField hint="Email Address"
-                   keyboardType="email"
-                   autocorrect="false"
-                   autocapitalizationType="none"
-                   [(ngModel)]="user.email"
-                   class="input input-border"></TextField>
-
-        <TextField hint="Password"
-                   secure="true"
-                   [(ngModel)]="user.password"
-                   class="input input-border"></TextField>
+        <Label *ngIf="apiError"
+               text="{{apiError.get('uncategorized')}}"
+               class="label font-weight-bold m-b-5 error-message"></Label>
 
         <Button text="Sign up"
                 class="btn btn-primary"

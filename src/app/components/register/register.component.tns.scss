@@ -1,11 +1,11 @@
 /* Add mobile styles for the component here.  */
-FlexboxLayout {
+.register-container {
   justify-content: center;
   align-items: center;
   background-color: #1abc9c;
 }
 
-StackLayout {
+.form {
   width: 300;
   padding: 10 16;
   background-color: #f0f0f0;
@@ -17,11 +17,12 @@ Image {
 }
 
 Button, TextField {
-  margin-bottom: 10;
+  margin-top: 10;
+  margin-bottom: 5;
 }
 
 .btn-primary {
-  background-color: #CB1D00;
+  background-color: #FF9700;
   margin-left: 0;
   margin-right: 0;
 }
@@ -29,4 +30,10 @@ Button, TextField {
 TextField {
   placeholder-color: #a89498;
   color: black;
+}
+
+.header {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10;
 }
