@@ -9,6 +9,7 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
+import { MainComponent } from './components/main/main.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
@@ -26,6 +27,7 @@ import { StorageTnsService } from './services/storage.tns.service';
   declarations: [
     AppComponent,
     ValidationMessagesComponent,
+    MainComponent,
     LoginComponent,
     RegisterComponent,
     ProjectListComponent
