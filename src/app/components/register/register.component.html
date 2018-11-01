@@ -1,3 +1,91 @@
-<p>
-  register works!
-</p>
+<section class="auth">
+    <mat-card class="card">
+        <mat-card-header class="header">
+            <mat-card-title class="application-name">
+                <h1>Project management system</h1>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content class="content">
+            <form #loginForm="ngForm"
+                  (ngSubmit)="submit()">
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput
+                               [placeholder]="'First name'"
+                               [(ngModel)]="user.name"
+                               name="name"
+                               #name="ngModel"
+                               required>
+                        <mat-error>
+                            <pms-validation-messages [model]="name"></pms-validation-messages>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput
+                               [placeholder]="'Last name'"
+                               [(ngModel)]="user.surname"
+                               name="surname"
+                               #surname="ngModel"
+                               required>
+                        <mat-error>
+                            <pms-validation-messages [model]="surname"></pms-validation-messages>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput
+                               [placeholder]="'E-mail address'"
+                               [(ngModel)]="user.email"
+                               name="email"
+                               #email="ngModel"
+                               email
+                               required>
+                        <mat-error>
+                            <pms-validation-messages [model]="email"></pms-validation-messages>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field>
+                        <input matInput
+                               [type]="hidePassword ? 'password' : 'text'"
+                               [placeholder]="'Password'"
+                               [(ngModel)]="user.password"
+                               name="password"
+                               #password="ngModel"
+                               minlength="6"
+                               required>
+                        <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                            {{ hidePassword ? 'visibility' : 'visibility_off' }}
+                        </mat-icon>
+                        <mat-error>
+                            <pms-validation-messages [model]="password"></pms-validation-messages>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <mat-error>
+                    <div *ngIf="apiError">
+                        {{ apiError?.get('uncategorized') }}
+                    </div>
+                </mat-error>
+                <div class="login-controls">
+                    <a [routerLink]="['/', 'login']">Back to login</a>
+                    <button mat-raised-button
+                            [disabled]="name.invalid || surname.invalid || email.invalid || password.invalid"
+                            color="accent"
+                            class="login--button"
+                            type="submit">
+                        {{ 'Register' }}
+                    </button>
+                </div>
+
+            </form>
+
+        </mat-card-content>
+
+    </mat-card>
+</section>
