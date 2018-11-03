@@ -10,6 +10,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ProjectCreateUpdateComponent } from './components/project-create-update/project-create-update.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
@@ -26,7 +27,8 @@ import { StorageService } from './services/storage.service';
     LoginComponent,
     RegisterComponent,
     BannerComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectCreateUpdateComponent
   ],
   imports: [
     BrowserModule,

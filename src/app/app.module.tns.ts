@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ProjectCreateUpdateComponent } from './components/project-create-update/project-create-update.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
@@ -32,7 +33,8 @@ import { StorageTnsService } from './services/storage.tns.service';
     NavigationComponent,
     LoginComponent,
     RegisterComponent,
-    ProjectListComponent
+    ProjectListComponent,
+    ProjectCreateUpdateComponent
   ],
   imports: [
     NativeScriptModule,

@@ -18,4 +18,12 @@ export class ProjectListComponent implements OnInit {
       this.projects = projects;
     });
   }
+
+  removeProject(project: Project): void {
+    this.projectDataService.removeProject(project.id).subscribe(() => {
+      if (this.projects) {
+        this.projects = this.projects.filter(proj => proj.id !== project.id);
+      }
+    });
+  }
 }

@@ -17,7 +17,7 @@ $custom-typography: mat-typography-config(
 @include mat-card-theme($drm-theme);
 @include mat-checkbox-theme($drm-theme);
 @include mat-chips-theme($drm-theme);
-//@include mat-datepicker-theme($drm-theme);
+@include mat-datepicker-theme($drm-theme);
 @include mat-dialog-theme($drm-theme);
 @include mat-divider-theme($drm-theme);
 //@include mat-expansion-panel-theme($drm-theme);
@@ -35,7 +35,7 @@ $custom-typography: mat-typography-config(
 @include mat-sidenav-theme($drm-theme);
 //@include mat-slide-toggle-theme($drm-theme);
 //@include mat-slider-theme($drm-theme);
-//@include mat-snack-bar-theme($drm-theme);
+@include mat-snack-bar-theme($drm-theme);
 //@include mat-stepper-theme($drm-theme);
 @include mat-table-theme($drm-theme);
 @include mat-toolbar-theme($drm-theme);

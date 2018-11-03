@@ -12,11 +12,20 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu" [overlapTrigger]="false">
-                        <button mat-menu-item>
+                        <a [routerLink]="['/', 'project', project.id]"
+                           mat-menu-item>
+                            <mat-icon>list</mat-icon>
+                            <span>Tasks list</span>
+                        </a>
+                        <a [routerLink]="['/', 'project', project.id, 'update']"
+                           mat-menu-item
+                           *ngIf="project.userRole === 'ADMIN'">
                             <mat-icon>edit</mat-icon>
                             <span>Edit</span>
-                        </button>
-                        <button mat-menu-item>
+                        </a>
+                        <button mat-menu-item
+                                (click)="removeProject(project)"
+                                *ngIf="project.userRole === 'ADMIN'">
                             <mat-icon>delete</mat-icon>
                             <span>Delete</span>
                         </button>
@@ -40,9 +49,10 @@
         </div>
     </div>
 
-    <button mat-icon-button
-            [matTooltip]="'Add new project'"
-            class="add-project mat-elevation-z3">
+    <a mat-icon-button
+       [routerLink]="['/', 'project', 'create']"
+       [matTooltip]="'Add new project'"
+       class="add-project mat-elevation-z3">
         <mat-icon>add</mat-icon>
-    </button>
+    </a>
 </div>

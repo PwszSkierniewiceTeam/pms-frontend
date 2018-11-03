@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <a [routerLink]="['/', 'project']" style="margin-bottom: 15px;"><h4>< Back</h4></a>
+            <div class="form-group">
+                <mat-card>
+                    <h2 mat-card-title>{{ type }} project</h2>
+                    <mat-card-content>
+                        <form #projectForm="ngForm"
+                              (ngSubmit)="submit()">
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput
+                                           [placeholder]="'Name'"
+                                           [(ngModel)]="project.name"
+                                           name="name"
+                                           #name="ngModel"
+                                           required>
+                                    <mat-error>
+                                        <pms-validation-messages [model]="name"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <textarea matInput
+                                              [placeholder]="'Description'"
+                                              [(ngModel)]="project.description"
+                                              name="description"
+                                              #description="ngModel"
+                                              cols="3"
+                                              rows="3"
+                                              required></textarea>
+                                    <mat-error>
+                                        <pms-validation-messages [model]="description"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput
+                                           [placeholder]="'Start date'"
+                                           [(ngModel)]="project.startDate"
+                                           [matDatepicker]="startDatePicker"
+                                           name="startDate"
+                                           #startDate="ngModel"
+                                           required>
+                                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #startDatePicker></mat-datepicker>
+                                    <mat-error>
+                                        <pms-validation-messages [model]="startDate"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput
+                                           [placeholder]="'End date'"
+                                           [(ngModel)]="project.endDate"
+                                           [matDatepicker]="endDatePicker"
+                                           name="endDate"
+                                           #endDate="ngModel"
+                                           required>
+                                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #endDatePicker></mat-datepicker>
+                                    <mat-error>
+                                        <pms-validation-messages [model]="endDate"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <mat-error>
+                                <div *ngIf="apiError">
+                                    {{ apiError?.get('uncategorized') }}
+                                </div>
+                            </mat-error>
+                            <div class="actions">
+                                <button mat-raised-button
+                                        [disabled]="name.invalid || description.invalid || startDate.invalid || endDate.invalid"
+                                        color="accent"
+                                        class="login--button"
+                                        type="submit">
+                                    {{ type }}
+                                </button>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
