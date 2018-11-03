@@ -1,37 +1,46 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4 todo">
-            <mat-card>
-                <h4 mat-card-title>Todo</h4>
+        <div class="col-4 task-column todo"
+             droppable
+             (onDrop)="onItemDrop($event, taskStatus.Todo)"
+             [dragOverClass]="'drag-target-border'">
+            <h4 mat-card-title>Todo</h4>
 
-                <ul>
-                    <li *ngFor="let task of todo">
-                        <pms-task [task]="task"></pms-task>
-                    </li>
-                </ul>
-            </mat-card>
+            <ul>
+                <li *ngFor="let task of tasks | taskStatusPipe:taskStatus.Todo"
+                    draggable
+                    [dragData]="task">
+                    <pms-task [task]="task"></pms-task>
+                </li>
+            </ul>
         </div>
-        <div class="col-4 in-progress">
-            <mat-card>
-                <h4 mat-card-title>In Progress</h4>
+        <div class="col-4 task-column in-progress"
+             droppable
+             (onDrop)="onItemDrop($event, taskStatus.InProgress)"
+             [dragOverClass]="'drag-target-border'">
+            <h4 mat-card-title>In Progress</h4>
 
-                <ul>
-                    <li *ngFor="let task of inProgress">
-                        <pms-task [task]="task"></pms-task>
-                    </li>
-                </ul>
-            </mat-card>
+            <ul>
+                <li *ngFor="let task of tasks | taskStatusPipe:taskStatus.InProgress"
+                    draggable
+                    [dragData]="task">
+                    <pms-task [task]="task"></pms-task>
+                </li>
+            </ul>
         </div>
-        <div class="col-4 done">
-            <mat-card>
-                <h4 mat-card-title>Done</h4>
+        <div class="col-4 task-column done"
+             droppable
+             (onDrop)="onItemDrop($event, taskStatus.Done)"
+             [dragOverClass]="'drag-target-border'">
+            <h4 mat-card-title>Done</h4>
 
-                <ul>
-                    <li *ngFor="let task of done">
-                        <pms-task [task]="task"></pms-task>
-                    </li>
-                </ul>
-            </mat-card>
+            <ul>
+                <li *ngFor="let task of tasks | taskStatusPipe:taskStatus.Done"
+                    draggable
+                    [dragData]="task">
+                    <pms-task [task]="task"></pms-task>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

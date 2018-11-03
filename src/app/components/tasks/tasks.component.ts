@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DropEvent } from 'ng-drag-drop';
 import { TaskStatus } from '../../enums/task-status.enum';
 import { Task } from '../../models/task.model';
 import { TaskDataService } from '../../services/task-data.service';
@@ -10,10 +11,9 @@ import { TaskDataService } from '../../services/task-data.service';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-  done: Task[];
-  inProgress: Task[];
   projectId: string;
-  todo: Task[];
+  taskStatus = TaskStatus;
+  tasks: Task[];
 
   constructor(private route: ActivatedRoute, private taskDataService: TaskDataService) {
   }
@@ -23,12 +23,13 @@ export class TasksComponent implements OnInit {
     this.initTasks();
   }
 
-  private initTasks(): void {
-    this.taskDataService.getTasks(this.projectId).subscribe(tasks => {
-      this.todo = tasks.filter(t => t.status === TaskStatus.Todo);
-      this.inProgress = tasks.filter(t => t.status === TaskStatus.InProgress);
-      this.done = tasks.filter(t => t.status === TaskStatus.Done);
-    });
+  onItemDrop(e: DropEvent, taskStatus: TaskStatus): void {
+    this.tasks = this.tasks.map(task => task.id === e.dragData.id ? new Task({...task, status: taskStatus}) : task);
   }
 
+  private initTasks(): void {
+    this.taskDataService.getTasks(this.projectId).subscribe(tasks => {
+      this.tasks = tasks;
+    });
+  }
 }

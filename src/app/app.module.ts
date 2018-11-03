@@ -22,6 +22,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { CustomMaterialModule } from './custom-material.module';
 import { SessionInterceptor } from './interceptors/session.interceptor';
+import { TaskStatusPipe } from './pipes/task-status.pipe';
 import { StorageService } from './services/storage.service';
 
 @NgModule({
@@ -39,7 +40,8 @@ import { StorageService } from './services/storage.service';
     ProjectDetailsComponent,
     ProjectUsersComponent,
     TasksComponent,
-    TaskComponent
+    TaskComponent,
+    TaskStatusPipe
   ],
   imports: [
     BrowserModule,
