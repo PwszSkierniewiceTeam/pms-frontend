@@ -1,7 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { TaskStatus } from '../enums/task-status.enum';
 import { TaskType } from '../enums/task-type.enum';
@@ -115,5 +114,9 @@ export class TaskDataService {
       task.assignedUser = task.assignedUser ? new User(task.assignedUser) : null;
       return new Task(task);
     })));*/
+  }
+
+  updateTask(task: Task): Observable<any> {
+    return this.http.put(`${environment.apiUrl}/tasks/${task.id}`, task);
   }
 }

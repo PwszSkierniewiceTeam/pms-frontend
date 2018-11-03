@@ -25,6 +25,11 @@ export class TasksComponent implements OnInit {
 
   onItemDrop(e: DropEvent, taskStatus: TaskStatus): void {
     this.tasks = this.tasks.map(task => task.id === e.dragData.id ? new Task({...task, status: taskStatus}) : task);
+
+    this.taskDataService.updateTask(new Task({
+      ...e.dragData,
+      status: taskStatus
+    })).subscribe();
   }
 
   private initTasks(): void {
