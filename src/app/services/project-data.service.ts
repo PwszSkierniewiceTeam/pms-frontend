@@ -39,7 +39,7 @@ const projects = [
   new Project({
     description: 'Example project 1 description',
     endDate: (new Date()).toISOString(),
-    id: Utils.uuid(),
+    id: '4692ce84-8ef6-494f-a0c9-98f52c92fc61',
     name: 'Example project 1',
     startDate: new Date(),
     userRole: ProjectUserRole.Admin

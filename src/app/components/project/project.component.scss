@@ -1,3 +1,13 @@
 .description {
   margin-top: 25px;
 }
+
+:host {
+  display: flex;
+  flex: 1;
+}
+
+.row {
+  flex: 1;
+  min-height: 100%;
+}
