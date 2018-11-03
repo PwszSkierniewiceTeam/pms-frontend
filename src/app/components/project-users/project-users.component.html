@@ -1,0 +1,39 @@
+<mat-card>
+    <h2 mat-card-title>Users</h2>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <mat-list>
+                    <mat-list-item *ngFor="let user of users">
+                        <h4 mat-line>{{ user.fullName }}</h4>
+                        <button mat-icon-button (click)="removeUser(user)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </mat-list-item>
+                </mat-list>
+
+                <h4 style="font-weight: bold; margin-top: 10px; margin-bottom: 10px;">Add user to project:</h4>
+                <form #addUserForm="ngForm"
+                      (ngSubmit)="addUser()">
+                    <mat-form-field>
+                        <input matInput
+                               [placeholder]="'E-mail address'"
+                               [(ngModel)]="userEmail"
+                               name="email"
+                               #email="ngModel"
+                               email>
+                        <mat-error>
+                            <pms-validation-messages [model]="email"></pms-validation-messages>
+                        </mat-error>
+                    </mat-form-field>
+                    <button mat-icon-button
+                            color="accent"
+                            type="submit">
+                        <mat-icon>add</mat-icon>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-card>

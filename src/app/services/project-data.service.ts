@@ -5,7 +5,35 @@ import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { ProjectUserRole } from '../enums/project-user-role.enum';
 import { Project } from '../models/project.model';
+import { User } from '../models/user.model';
 import { Utils } from '../utils';
+
+const users = [
+  new User({
+    email: 'jan.kowalski@example.com',
+    id: Utils.uuid(),
+    name: 'Jan',
+    surname: 'Kowalski'
+  }),
+  new User({
+    email: 'jan.kowalski2@example.com',
+    id: Utils.uuid(),
+    name: 'Jan2',
+    surname: 'Kowalski'
+  }),
+  new User({
+    email: 'jan.kowalski3@example.com',
+    id: Utils.uuid(),
+    name: 'Jan3',
+    surname: 'Kowalski'
+  }),
+  new User({
+    email: 'jan.kowalski4@example.com',
+    id: Utils.uuid(),
+    name: 'Jan4',
+    surname: 'Kowalski'
+  })
+];
 
 const projects = [
   new Project({
@@ -49,6 +77,10 @@ export class ProjectDataService {
   constructor(private http: HttpClient) {
   }
 
+  addUserToProject(projectId: string, userEmail: string): Observable<any> {
+    return this.http.post(`${environment.apiUrl}/projects/${projectId}/users`, {email: userEmail});
+  }
+
   createProject(project: Partial<Project>): Observable<Partial<Project>> {
     return this.http.post(`${environment.apiUrl}/projects`, project).pipe(
       map(() => project)
@@ -62,6 +94,13 @@ export class ProjectDataService {
     );*/
   }
 
+  getProjectUsers(projectId: string): Observable<Array<Partial<User>>> {
+    return of(users);
+    /*this.http.get<Array<any>>(`${environment.apiUrl}/projects/${projectId}/users`).pipe(
+          map(res => res.map(u => new User(u)))
+        );*/
+  }
+
   getProjects(): Observable<Project[]> {
     return of(projects);
     /*return this.http.get<Array<any>>(`${environment.apiUrl}/projects`)
@@ -72,6 +111,10 @@ export class ProjectDataService {
 
   removeProject(projectId: string): Observable<any> {
     return this.http.delete(`${environment.apiUrl}/projects/${projectId}`);
+  }
+
+  removeUserFromProject(projectId: string, userId: string): Observable<any> {
+    return this.http.delete(`${environment.apiUrl}/projects/${projectId}/users/${userId}`);
   }
 
   updateProject(project: Partial<Project>): Observable<any> {

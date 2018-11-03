@@ -11,7 +11,10 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProjectCreateUpdateComponent } from './components/project-create-update/project-create-update.component';
+import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ProjectListComponent } from './components/project-list/project-list.component';
+import { ProjectUsersComponent } from './components/project-users/project-users.component';
+import { ProjectComponent } from './components/project/project.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { CustomMaterialModule } from './custom-material.module';
@@ -28,7 +31,10 @@ import { StorageService } from './services/storage.service';
     RegisterComponent,
     BannerComponent,
     ProjectListComponent,
-    ProjectCreateUpdateComponent
+    ProjectCreateUpdateComponent,
+    ProjectComponent,
+    ProjectDetailsComponent,
+    ProjectUsersComponent
   ],
   imports: [
     BrowserModule,
