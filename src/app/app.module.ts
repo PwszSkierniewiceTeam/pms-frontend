@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectUsersComponent } from './components/project-users/project-users.component';
 import { ProjectComponent } from './components/project/project.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TaskComponent } from './components/task/task.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { CustomMaterialModule } from './custom-material.module';
 import { SessionInterceptor } from './interceptors/session.interceptor';
@@ -34,13 +37,16 @@ import { StorageService } from './services/storage.service';
     ProjectCreateUpdateComponent,
     ProjectComponent,
     ProjectDetailsComponent,
-    ProjectUsersComponent
+    ProjectUsersComponent,
+    TasksComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
+    NgDragDropModule.forRoot(),
     HttpClientModule,
     CustomMaterialModule
   ],
