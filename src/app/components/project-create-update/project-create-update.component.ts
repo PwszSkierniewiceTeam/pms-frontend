@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ProjectUserRole } from '../../enums/project-user-role.enum';
 import { Project } from '../../models/project.model';
 import { ProjectDataService } from '../../services/project-data.service';
 
@@ -14,7 +15,8 @@ export class ProjectCreateUpdateComponent implements OnInit {
     name: '',
     description: '',
     startDate: null,
-    endDate: null
+    endDate: null,
+    userRole: ProjectUserRole.Admin
   };
   type = '';
 
