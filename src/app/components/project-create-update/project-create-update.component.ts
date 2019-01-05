@@ -41,7 +41,16 @@ export class ProjectCreateUpdateComponent implements OnInit {
 
   submit(): void {
     if (this.type === 'Update') {
-      this.projectDataService.updateProject(this.project).subscribe(() => {
+      const project = {
+        ...this.project,
+        startDate: this.project.startDate,
+        endDate: this.project.endDate
+      };
+
+      delete project['_endDate'];
+      delete project['_startDate'];
+
+      this.projectDataService.updateProject(project).subscribe(() => {
         this.success('Project updated', 'Dismiss');
       });
     } else {
