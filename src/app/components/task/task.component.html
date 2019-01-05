@@ -1,3 +1,9 @@
 <mat-card>
-    <h4 mat-card-title>{{ task.name }}</h4>
+    <h5 mat-card-title>{{ task.name }}</h5>
+    <mat-list>
+        <mat-list-item>
+            <mat-icon mat-list-icon>person</mat-icon>
+            <h5 mat-line>{{ task.assignedUser.fullName }}</h5>
+        </mat-list-item>
+    </mat-list>
 </mat-card>

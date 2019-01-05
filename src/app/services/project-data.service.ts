@@ -102,11 +102,11 @@ export class ProjectDataService {
   }
 
   getProjects(): Observable<Project[]> {
-    return of(projects);
-    /*return this.http.get<Array<any>>(`${environment.apiUrl}/projects`)
+    /*return of(projects);*/
+    return this.http.get<Array<any>>(`${environment.apiUrl}/projects`)
       .pipe(
         map(res => res.map(project => new Project(project)))
-      );*/
+      );
   }
 
   removeProject(projectId: string): Observable<any> {

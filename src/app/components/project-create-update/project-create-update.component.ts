@@ -43,8 +43,9 @@ export class ProjectCreateUpdateComponent implements OnInit {
         this.success('Project updated', 'Dismiss');
       });
     } else {
-      this.projectDataService.createProject(this.project);
-      this.success('Project created', 'Dismiss');
+      this.projectDataService.createProject(this.project).subscribe(() => {
+        this.success('Project created', 'Dismiss');
+      });
     }
   }
 
