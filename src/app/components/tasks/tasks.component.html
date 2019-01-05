@@ -1,4 +1,6 @@
-<div class="container-fluid">
+<a mat-raised-button [color]="'accent'" [routerLink]="['.', 'task']">Add new task</a>
+
+<div class="container-fluid" *ngIf="tasks">
     <div class="row">
         <div class="col-4 task-column todo"
              droppable

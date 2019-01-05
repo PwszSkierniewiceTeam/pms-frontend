@@ -15,7 +15,8 @@ export class TasksComponent implements OnInit {
   taskStatus = TaskStatus;
   tasks: Task[];
 
-  constructor(private route: ActivatedRoute, private taskDataService: TaskDataService) {
+  constructor(private route: ActivatedRoute,
+              private taskDataService: TaskDataService) {
   }
 
   ngOnInit() {

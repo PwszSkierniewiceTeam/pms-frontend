@@ -17,6 +17,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectUsersComponent } from './components/project-users/project-users.component';
 import { ProjectComponent } from './components/project/project.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TaskCreateUpdateComponent } from './components/task-create-update/task-create-update.component';
 import { TaskComponent } from './components/task/task.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
@@ -41,7 +42,8 @@ import { StorageService } from './services/storage.service';
     ProjectUsersComponent,
     TasksComponent,
     TaskComponent,
-    TaskStatusPipe
+    TaskStatusPipe,
+    TaskCreateUpdateComponent
   ],
   imports: [
     BrowserModule,

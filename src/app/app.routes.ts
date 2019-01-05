@@ -5,6 +5,7 @@ import { ProjectCreateUpdateComponent } from './components/project-create-update
 import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectComponent } from './components/project/project.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TaskCreateUpdateComponent } from './components/task-create-update/task-create-update.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -34,6 +35,14 @@ export const routes: Routes = [
       {
         path: ':projectId',
         component: ProjectComponent
+      },
+      {
+        path: ':projectId/task',
+        component: TaskCreateUpdateComponent
+      },
+      {
+        path: ':projectId/task/:taskId',
+        component: TaskCreateUpdateComponent
       }
     ]
   },

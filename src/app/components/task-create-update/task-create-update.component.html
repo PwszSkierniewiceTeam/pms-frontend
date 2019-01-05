@@ -1,0 +1,93 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <mat-card>
+                    <h2 mat-card-title>{{ type }} task</h2>
+                    <mat-card-content>
+                        <form #taskForm="ngForm"
+                              (ngSubmit)="submit()">
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput
+                                           [placeholder]="'Name'"
+                                           [(ngModel)]="task.name"
+                                           name="name"
+                                           #name="ngModel"
+                                           required>
+                                    <mat-error>
+                                        <pms-validation-messages [model]="name"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <textarea matInput
+                                              [placeholder]="'Description'"
+                                              [(ngModel)]="task.description"
+                                              name="description"
+                                              #description="ngModel"
+                                              cols="3"
+                                              rows="3"
+                                              required></textarea>
+                                    <mat-error>
+                                        <pms-validation-messages [model]="description"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <mat-select placeholder="Task type"
+                                            [(ngModel)]="task.type"
+                                            name="taskType"
+                                            required>
+                                        <mat-option *ngFor="let taskType of taskTypes" [value]="taskType">
+                                            {{ taskType }}
+                                        </mat-option>
+                                    </mat-select>
+
+                                    <mat-error>
+                                        <pms-validation-messages [model]="description"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <mat-select placeholder="Assigned user"
+                                                [(ngModel)]="task.assignedUser"
+                                                name="assignedUser"
+                                                required>
+                                        <mat-option *ngFor="let user of projectUsers" [value]="user">
+                                            {{ user.fullName }} <{{ user.email }}>
+                                        </mat-option>
+                                    </mat-select>
+
+                                    <mat-error>
+                                        <pms-validation-messages [model]="description"></pms-validation-messages>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <mat-error>
+                                <div *ngIf="apiError">
+                                    {{ apiError?.get('uncategorized') }}
+                                </div>
+                            </mat-error>
+                            <div class="actions">
+                                <button mat-raised-button
+                                        [disabled]="name.invalid || description.invalid"
+                                        color="accent"
+                                        class="login--button"
+                                        type="submit">
+                                    Save
+                                </button>
+                            </div>
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
