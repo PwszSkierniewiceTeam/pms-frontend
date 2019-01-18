@@ -1,5 +1,6 @@
-<StackLayout class="h2 title m-l-10 m-b-10" orientation="vertical">
-    <Label [text]="'Name: ' + project?.name"></Label>
-    <Label [text]="'Start at: ' + (project?.startDate | date:'shortDate')"></Label>
-    <Label [text]="'End at: ' + (project?.endDate | date:'shortDate')"></Label>
+<StackLayout class="title m-l-10 m-b-10" orientation="vertical">
+    <Label text="Details:" class="h2"></Label>
+    <Label [text]="'Name: ' + project?.name" class="h3"></Label>
+    <Label [text]="'Start at: ' + (project?.startDate | date:'shortDate')" class="h3"></Label>
+    <Label [text]="'End at: ' + (project?.endDate | date:'shortDate')" class="h3"></Label>
 </StackLayout>

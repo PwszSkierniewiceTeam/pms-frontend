@@ -19,6 +19,10 @@ export class TasksComponent implements OnInit {
               private taskDataService: TaskDataService) {
   }
 
+  onItemTap(item: any) {
+    console.log(item.index);
+  }
+
   ngOnInit() {
     this.projectId = this.route.snapshot.params['projectId'];
     this.initTasks();
