@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from '../../models/project.model';
 import { ProjectDataService } from '../../services/project-data.service';
 
@@ -10,13 +11,18 @@ import { ProjectDataService } from '../../services/project-data.service';
 export class ProjectListComponent implements OnInit {
   projects?: Project[];
 
-  constructor(private projectDataService: ProjectDataService) {
+  constructor(private projectDataService: ProjectDataService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.projectDataService.getProjects().subscribe(projects => {
       this.projects = projects;
     });
+  }
+
+  onItemTap(item: any) {
+    console.log(item.index);
+    this.router.navigateByUrl('/project/' + this.projects[item.index].id);
   }
 
   removeProject(project: Project): void {

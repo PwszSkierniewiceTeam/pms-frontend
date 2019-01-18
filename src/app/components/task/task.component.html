@@ -1,5 +1,6 @@
-<mat-card>
+<mat-card [ngClass]="task.type">
     <h5 mat-card-title>{{ task.name }}</h5>
+    <p mat-card-subtitle>{{ task.description }}</p>
     <mat-list>
         <mat-list-item>
             <mat-icon mat-list-icon>person</mat-icon>

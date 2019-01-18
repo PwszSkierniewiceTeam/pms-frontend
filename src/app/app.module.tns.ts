@@ -17,9 +17,12 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectUsersComponent } from './components/project-users/project-users.component';
 import { ProjectComponent } from './components/project/project.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TaskCreateUpdateComponent } from './components/task-create-update/task-create-update.component';
+import { TaskComponent } from './components/task/task.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { SessionInterceptor } from './interceptors/session.interceptor';
+import { TaskStatusPipe } from './pipes/task-status.pipe';
 import { StorageService } from './services/storage.service';
 import { StorageTnsService } from './services/storage.tns.service';
 
@@ -43,7 +46,8 @@ import { StorageTnsService } from './services/storage.tns.service';
     ProjectDetailsComponent,
     ProjectUsersComponent,
     TasksComponent,
-    TasksComponent
+    TaskComponent,
+    TaskCreateUpdateComponent
   ],
   imports: [
     NativeScriptModule,
