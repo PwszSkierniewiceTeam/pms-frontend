@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskStatus } from '../../enums/task-status.enum';
@@ -31,7 +31,7 @@ export class TaskCreateUpdateComponent implements OnInit {
               private route: ActivatedRoute,
               private taskDataService: TaskDataService,
               private projectDataService: ProjectDataService,
-              private snack: MatSnackBar) {
+              @Optional() @Inject(MatSnackBar) private snack: MatSnackBar) {
   }
 
   ngOnInit() {
@@ -43,6 +43,9 @@ export class TaskCreateUpdateComponent implements OnInit {
       this.type = 'Update';
       this.taskDataService.getTask(taskId).subscribe(res => {
         this.task = res;
+        setTimeout(() => {
+          this.findAssignedUser();
+        });
       });
     } else {
       this.type = 'Create';
@@ -63,9 +66,18 @@ export class TaskCreateUpdateComponent implements OnInit {
     }
   }
 
+  private findAssignedUser() {
+    if (this.projectUsers && this.task && this.task.assignedUser) {
+      this.task.assignedUser = this.projectUsers.find(u => u.id === this.task.assignedUser.id);
+    }
+  }
+
   private initProjectUsers(): void {
     this.projectDataService.getProjectUsers(this.projectId).subscribe(users => {
       this.projectUsers = users;
+      setTimeout(() => {
+        this.findAssignedUser();
+      });
     });
   }
 

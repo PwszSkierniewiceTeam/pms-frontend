@@ -10,13 +10,13 @@
                     <Label [text]="'Type: ' + task.type"></Label>
                     <Label [text]="'Assigned to: ' + task.assignedUser.fullName"></Label>
                 </StackLayout>
-                <Button class="button-con action-button" (tap)="onTap($event)">
+                <Button class="button-con action-button"
+                        [nsRouterLink]="['/project', projectId, 'task', task.id]">
                     <FormattedString>
                         <Span [text]="editIcon" class="con"></Span>
                     </FormattedString>
                 </Button>
             </FlexboxLayout>
-
 
         </ng-template>
     </ListView>
