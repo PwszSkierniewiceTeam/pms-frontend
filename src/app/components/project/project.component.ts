@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NsContainer } from '../../services/ns-container';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'pms-project',
@@ -10,11 +9,11 @@ import { NsContainer } from '../../services/ns-container';
 export class ProjectComponent implements OnInit {
   projectId: string;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private router: Router) {
   }
 
   goBack(): void {
-    NsContainer.routerExtensions.back();
+    this.router.navigate(['/project']);
   }
 
   ngOnInit() {

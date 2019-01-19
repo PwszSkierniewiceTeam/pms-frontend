@@ -53,7 +53,7 @@ export class TaskCreateUpdateComponent implements OnInit {
   }
 
   goBack(): void {
-    NsContainer.routerExtensions.backToPreviousPage();
+    this.router.navigateByUrl('/project/' + this.projectId);
   }
 
   displayUserDialog() {
