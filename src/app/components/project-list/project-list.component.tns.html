@@ -1,11 +1,24 @@
 <ActionBar title="Project list"></ActionBar>
 
-<ListView [items]="projects" (itemTap)="onItemTap($event)" class="list-group">
-    <ng-template let-project="item" let-i="index" let-odd="odd" let-even="even">
-        <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
-        <StackLayout orientation="horizontal" class="list-group-item" [ngClass]="{'even': even}">
-            <Label text="Project: " textWrap="true"></Label>
-            <Label [text]="project.name"></Label>
-        </StackLayout>
-    </ng-template>
-</ListView>
+<StackLayout orientation="vertical">
+    <Button class="btn btn-primary" [nsRouterLink]="['/project', 'create']" [text]="'Create project'"></Button>
+
+    <ListView [items]="projects" (itemTap)="onItemTap($event)" class="list-group">
+        <ng-template let-project="item" let-i="index" let-odd="odd" let-even="even">
+            <!-- The item template can only have a single root view container (e.g. GridLayout, StackLayout, etc.)-->
+            <FlexboxLayout [ngClass]="{'even': even}">
+                <StackLayout orientation="vertical" class="list-group-item"
+                             (onTap)="onItemTap(i)">
+                    <Label [text]="project.name"></Label>
+                </StackLayout>
+                <Button class="button-con action-button"
+                        [nsRouterLink]="['/project', project.id, 'update']">
+                    <FormattedString>
+                        <Span [text]="editIcon" class="con"></Span>
+                    </FormattedString>
+                </Button>
+            </FlexboxLayout>
+        </ng-template>
+    </ListView>
+
+</StackLayout>

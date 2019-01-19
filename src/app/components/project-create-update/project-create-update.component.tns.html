@@ -1,1 +1,57 @@
-<Button text="project-create-update works!" class="btn btn-primary"></Button>
+<ActionBar [title]="type + ' project'">
+    <NavigationButton android.systemIcon="ic_menu_back" text="Back to ActionBar" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<ScrollView row="1">
+    <FlexboxLayout class="register-container">
+        <StackLayout class="form">
+            <FlexboxLayout class="header">
+                <Label class="h2" [text]="type + ' project'"></Label>
+            </FlexboxLayout>
+            <StackLayout>
+                <Label text="Name"
+                       class="label font-weight-bold m-b-5"></Label>
+                <TextField #name="ngModel"
+                           [(ngModel)]="project.name"
+                           autocapitalizationType="words"
+                           class="input input-border"
+                           required></TextField>
+                <pms-validation-messages [model]="name"></pms-validation-messages>
+            </StackLayout>
+            <StackLayout>
+                <Label text="Description"
+                       class="label font-weight-bold m-b-5"></Label>
+                <TextField #description="ngModel"
+                           [(ngModel)]="project.description"
+                           class="input input-border"
+                           required></TextField>
+                <pms-validation-messages [model]="description"></pms-validation-messages>
+            </StackLayout>
+
+            <Label text="Start date:"
+                   class="label font-weight-bold m-b-5"></Label>
+
+            <DatePicker (loaded)="onStartPickerLoaded($event)"
+                        (dateChange)="onStartDateChanged($event)"
+                        verticalAlignment="center"></DatePicker>
+
+            <Label text="End date:"
+                   class="label font-weight-bold m-b-5"></Label>
+
+
+            <DatePicker (loaded)="onEndPickerLoaded($event)"
+                        (dateChange)="onEndDateChanged($event)"
+                        verticalAlignment="center"></DatePicker>
+
+            <Label *ngIf="apiError"
+                   text="{{apiError.get('uncategorized')}}"
+                   class="label font-weight-bold m-b-5 error-message"></Label>
+
+            <Button text="Save"
+                    class="btn btn-primary"
+                    [isEnabled]="name.valid && description.valid && !!project?.startDate && !!project?.endDate"
+                    (tap)="submit()"></Button>
+        </StackLayout>
+
+    </FlexboxLayout>
+</ScrollView>

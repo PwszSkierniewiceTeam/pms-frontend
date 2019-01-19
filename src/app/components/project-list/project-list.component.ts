@@ -9,6 +9,7 @@ import { ProjectDataService } from '../../services/project-data.service';
   styleUrls: ['./project-list.component.scss']
 })
 export class ProjectListComponent implements OnInit {
+  editIcon = String.fromCharCode(0xe3c9);
   projects?: Project[];
 
   constructor(private projectDataService: ProjectDataService, private router: Router) {
@@ -21,7 +22,8 @@ export class ProjectListComponent implements OnInit {
   }
 
   onItemTap(item: any) {
-    this.router.navigateByUrl('/project/' + this.projects[item.index].id);
+    const index = typeof item === 'number' ? item : item.index;
+    this.router.navigateByUrl('/project/' + this.projects[index].id);
   }
 
   removeProject(project: Project): void {
