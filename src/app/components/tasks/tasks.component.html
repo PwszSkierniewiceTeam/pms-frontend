@@ -12,7 +12,8 @@
                 <li *ngFor="let task of tasks | taskStatusPipe:taskStatus.Todo"
                     draggable
                     [dragData]="task">
-                    <pms-task [task]="task"></pms-task>
+                    <pms-task [task]="task"
+                              (editTask)="onTaskEdit($event)"></pms-task>
                 </li>
             </ul>
         </div>
@@ -26,7 +27,8 @@
                 <li *ngFor="let task of tasks | taskStatusPipe:taskStatus.InProgress"
                     draggable
                     [dragData]="task">
-                    <pms-task [task]="task"></pms-task>
+                    <pms-task [task]="task"
+                              (editTask)="onTaskEdit($event)"></pms-task>
                 </li>
             </ul>
         </div>
@@ -40,7 +42,8 @@
                 <li *ngFor="let task of tasks | taskStatusPipe:taskStatus.Done"
                     draggable
                     [dragData]="task">
-                    <pms-task [task]="task"></pms-task>
+                    <pms-task [task]="task"
+                              (editTask)="onTaskEdit($event)"></pms-task>
                 </li>
             </ul>
         </div>

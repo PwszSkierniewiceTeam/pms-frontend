@@ -1,10 +1,10 @@
 <mat-card [ngClass]="task.type">
-    <h5 mat-card-title>{{ task.name }}</h5>
+    <h5 mat-card-title>{{ task.name }}
+        <button mat-icon-button
+                (click)="onEdit()">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </h5>
     <p mat-card-subtitle>{{ task.description }}</p>
-    <mat-list>
-        <mat-list-item>
-            <mat-icon mat-list-icon>person</mat-icon>
-            <h5 mat-line>{{ task.assignedUser.fullName }}</h5>
-        </mat-list-item>
-    </mat-list>
+    <h6>Assigned to: {{ task.assignedUser.fullName }}</h6>
 </mat-card>

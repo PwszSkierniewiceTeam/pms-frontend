@@ -11,18 +11,14 @@ import { TaskDataService } from '../../services/task-data.service';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
+  editIcon = String.fromCharCode(0xe3c9);
   projectId: string;
   taskStatus = TaskStatus;
   tasks: Task[];
-  editIcon = String.fromCharCode(0xe3c9);
 
   constructor(private route: ActivatedRoute,
               private router: Router,
               private taskDataService: TaskDataService) {
-  }
-
-  onItemTap(item: any) {
-    this.router.navigateByUrl('/project/' + this.projectId + '/task/' + this.tasks[item.index].id + '/preview');
   }
 
   ngOnInit() {
@@ -37,6 +33,14 @@ export class TasksComponent implements OnInit {
       ...e.dragData,
       status: taskStatus
     })).subscribe();
+  }
+
+  onItemTap(item: any) {
+    this.router.navigateByUrl('/project/' + this.projectId + '/task/' + this.tasks[item.index].id + '/preview');
+  }
+
+  onTaskEdit(task: Task): void {
+    this.router.navigateByUrl('/project/' + this.projectId + '/task/' + task.id);
   }
 
   private initTasks(): void {

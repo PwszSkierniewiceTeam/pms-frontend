@@ -22,7 +22,7 @@ export class TaskDataService {
   }
 
   getTask(taskId: string): Observable<Task> {
-    return this.http.get<Task>(`${environment.apiUrl}/tasks/${taskId}`);
+    return this.http.get<{task: Task}>(`${environment.apiUrl}/tasks/${taskId}`).pipe(map(res => res.task));
   }
 
   getTasks(projectId: string): Observable<Task[]> {
