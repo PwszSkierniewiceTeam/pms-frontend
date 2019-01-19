@@ -33,6 +33,8 @@
     "bootstrap": "4.1.3",
     "core-js": "^2.5.4",
     "nativescript-angular": "~6.1.0",
+    "nativescript-material-icons": "^1.0.3",
+    "nativescript-ng2-fonticon": "^1.3.4",
     "nativescript-theme-core": "~1.0.4",
     "ng-drag-drop": "^5.0.0",
     "reflect-metadata": "~0.1.8",

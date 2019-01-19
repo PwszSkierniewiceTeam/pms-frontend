@@ -6,6 +6,7 @@ import { ProjectListComponent } from './components/project-list/project-list.com
 import { ProjectComponent } from './components/project/project.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TaskCreateUpdateComponent } from './components/task-create-update/task-create-update.component';
+import { TaskComponent } from './components/task/task.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [

@@ -21,7 +21,6 @@ export class ProjectListComponent implements OnInit {
   }
 
   onItemTap(item: any) {
-    console.log(item.index);
     this.router.navigateByUrl('/project/' + this.projects[item.index].id);
   }
 
@@ -33,3 +32,4 @@ export class ProjectListComponent implements OnInit {
     });
   }
 }
+
