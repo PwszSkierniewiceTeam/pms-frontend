@@ -1,10 +1,12 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
-import { NativeScriptFormsModule, NativeScriptHttpModule, NativeScriptRouterModule } from 'nativescript-angular';
+import { NativeScriptFormsModule, NativeScriptHttpModule, NativeScriptRouterModule, RouterExtensions } from 'nativescript-angular';
 import { NativeScriptAnimationsModule } from 'nativescript-angular/animations';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
+
+import * as dialogs from 'tns-core-modules/ui/dialogs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +24,7 @@ import { TaskComponent } from './components/task/task.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { ValidationMessagesComponent } from './components/validation-messages/validation-messages.component';
 import { SessionInterceptor } from './interceptors/session.interceptor';
-import { TaskStatusPipe } from './pipes/task-status.pipe';
+import { NsContainer } from './services/ns-container';
 import { StorageService } from './services/storage.service';
 import { StorageTnsService } from './services/storage.tns.service';
 
@@ -73,4 +75,9 @@ import { StorageTnsService } from './services/storage.tns.service';
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private routerExtensions: RouterExtensions) {
+    NsContainer.dialogs = dialogs;
+    NsContainer.routerExtensions = routerExtensions;
+  }
+}

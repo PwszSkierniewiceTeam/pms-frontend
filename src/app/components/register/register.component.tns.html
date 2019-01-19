@@ -58,7 +58,7 @@
 
         <Button text="Sign up"
                 class="btn btn-primary"
-                [isEnabled]="name.valid || surname.valid || email.valid || password.valid"
+                [isEnabled]="name.valid && surname.valid && email.valid && password.valid"
                 (tap)="submitWithAlert()"></Button>
         <Button text="Back to login"
                 [nsRouterLink]="['/login']"></Button>

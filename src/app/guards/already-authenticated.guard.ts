@@ -5,7 +5,7 @@ import { SessionService } from '../services/session.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class AlreadyAuthenticatedGuard implements CanActivate, CanActivateChild {
   constructor(private sessionService: SessionService, private router: Router) {
   }
 
@@ -17,14 +17,13 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return this.checkSessionValidity();
   }
 
-  private checkSessionValidity(): boolean {
+  checkSessionValidity(): boolean {
     const isValid = this.sessionService.getLifeTimeLeft() > 0;
 
-    if (!isValid) {
-      console.log('login');
-      this.router.navigate(['/', 'login']);
+    if (isValid) {
+      this.router.navigate(['/', 'project']);
     }
 
-    return isValid;
+    return true;
   }
 }

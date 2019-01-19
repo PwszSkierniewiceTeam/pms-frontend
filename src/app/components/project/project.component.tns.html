@@ -1,7 +1,9 @@
-<ActionBar title="Project"></ActionBar>
+<ActionBar title="Project">
+    <!--<NavigationButton android.systemIcon="ic_menu_back" text="Back to ActionBar" (tap)="goBack()"></NavigationButton>-->
+</ActionBar>
 
 <StackLayout orientation="vertical">
 <pms-project-details></pms-project-details>
-
+<Button class="btn btn-primary" [nsRouterLink]="['/project', projectId, 'task']" [text]="'Add task'"></Button>
 <pms-tasks></pms-tasks>
 </StackLayout>

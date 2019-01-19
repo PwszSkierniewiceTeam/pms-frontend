@@ -1,1 +1,45 @@
-<Button text="task-create-update works!" class="btn btn-primary"></Button>
+<ActionBar title="Project">
+    <NavigationButton android.systemIcon="ic_menu_back" text="Back to ActionBar" (tap)="goBack()"></NavigationButton>
+</ActionBar>
+
+<FlexboxLayout class="register-container">
+    <StackLayout class="form">
+        <FlexboxLayout class="header">
+            <Label class="h2" [text]="type + ' task'"></Label>
+        </FlexboxLayout>
+        <StackLayout>
+            <Label text="Name"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #name="ngModel"
+                       [(ngModel)]="task.name"
+                       autocapitalizationType="words"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="name"></pms-validation-messages>
+        </StackLayout>
+        <StackLayout>
+            <Label text="Description"
+                   class="label font-weight-bold m-b-5"></Label>
+            <TextField #description="ngModel"
+                       [(ngModel)]="task.description"
+                       class="input input-border"
+                       required></TextField>
+            <pms-validation-messages [model]="description"></pms-validation-messages>
+        </StackLayout>
+
+        <Button [text]="'Task type: ' + task.type" (onTap)="displayTypeDialog()"></Button>
+
+
+        <Button [text]="task.assignedUser ? 'Assigned to: ' + task.assignedUser.fullName : 'Assign task'" (onTap)="displayUserDialog()"></Button>
+
+        <Label *ngIf="apiError"
+               text="{{apiError.get('uncategorized')}}"
+               class="label font-weight-bold m-b-5 error-message"></Label>
+
+        <Button text="Save"
+                class="btn btn-primary"
+                [isEnabled]="name.valid && description.valid && !!task?.type && !!task?.assignedUser"
+                (tap)="submit()"></Button>
+    </StackLayout>
+
+</FlexboxLayout>
