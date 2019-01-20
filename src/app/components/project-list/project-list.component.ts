@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from '../../models/project.model';
 import { ProjectDataService } from '../../services/project-data.service';
+import { SessionService } from '../../services/session.service';
 
 @Component({
   selector: 'pms-project-list',
@@ -12,7 +13,12 @@ export class ProjectListComponent implements OnInit {
   editIcon = String.fromCharCode(0xe3c9);
   projects?: Project[];
 
-  constructor(private projectDataService: ProjectDataService, private router: Router) {
+  constructor(private projectDataService: ProjectDataService, private router: Router, private sessionService: SessionService) {
+  }
+
+  logout(): void {
+    this.sessionService.logout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit(): void {

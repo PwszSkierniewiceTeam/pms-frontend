@@ -1,4 +1,6 @@
-<ActionBar title="Project list"></ActionBar>
+<ActionBar title="Project list">
+    <NavigationButton android.systemIcon="ic_menu_back" text="logout" (tap)="logout()"></NavigationButton>
+</ActionBar>
 
 <StackLayout orientation="vertical">
     <Button class="btn btn-primary" [nsRouterLink]="['/project', 'create']" [text]="'Create project'"></Button>
